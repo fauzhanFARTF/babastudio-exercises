@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fauzan Nurrachman Exercise 2</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <h2>Registration Form</h2>
+                <form id="register">
+                    <div class="form-group">
+                        <label for="name">Nama Lengkap</label>
+                        <input type="text" class="form-control" name="name" id="name" placeholder="Nama Lengkap">
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">Jenis Kelamin</label>
+                        <select id="gender" name="gender" class="form-control" placeholder="Jenis Kelamin">
+                            <option value="" disabled selected hidden>Jenis Kelamin</option>
+                            <option value="pria">Pria</option>
+                            <option value="wanita">Wanita</option>
+                        </select>
+                        <!-- <input type="number" class="form-control" id="jenis" placeholder="Harga Produk"> -->
+                    </div>
+                    <div class="form-group">
+                        <label for="hp">No Hp</label>
+                        <input type="text" class="form-control" id="hp" name="hp" placeholder="No Hp">
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Alamat</label>
+                        <textarea class="form-control" id="address" name="address" rows="5"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <!-- <input type="submit" name="" class="btn btn-primary btn-lg " value="Submit"> -->
+                </form>
+            </div>
+        </div>
+        <!-- <div class="card-action">
+                        <h2 id="task-title">TASK</h2>
+                        <div class="input-field col s12">
+                            <input type="text" name="filter" id="filter">
+                            <label for="filter">Filter Tasks</label>
+                        </div>
+
+                        <a href="#" class="clear-tasks btn black">clear Tasks</a>
+        </div> -->
+        <table class="table table-sm table-dark" id="tabel-regList">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Nama Lengkap</th>
+                            <th scope="col">Jenis Kelamin</th>
+                            <th scope="col">No Hp</th>
+                            <th scope="col">Alamat </th>
+                            <th scope="col">Aksi </th>
+                        </tr>
+                    </thead>
+                    <tbody id="regList">
+               
+                    </tbody>
+
+        </table>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
