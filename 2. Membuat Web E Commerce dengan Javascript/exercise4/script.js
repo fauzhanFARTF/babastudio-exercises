@@ -154,7 +154,7 @@ const ItemCtrl = (function(){
 
         getCurrentItem: function(){
             // mengambil data berdasarkan item yang sudah dibuat/diclick
-            // console.log(data.currentItem);
+            console.log(data.currentItem);
             return data.currentItem;
 
         },
@@ -186,7 +186,7 @@ const UICtrl = (function (){
         addBtn: '.add-btn',
         listItems: '#item-list tr',
         updateBtn : '.update-btn',
-        deleteBtn : '.delete-item',
+        deleteBtn : '.delete-btn',
         backBtn : '.back-btn',
         itemNamaProduk: '#nama',
         itemHargaProduk: '#harga',
@@ -300,6 +300,16 @@ const UICtrl = (function (){
             UICtrl.showEditState();
         },
 
+        addItemToFormDelete: function(){
+            document.querySelector(UISelector.itemNamaProduk).value = ItemCtrl.getCurrentItem().nama,
+            document.querySelector(UISelector.itemHargaProduk).value = ItemCtrl.getCurrentItem().harga,
+            document.querySelector(UISelector.itemKategoriProduk).value = ItemCtrl.getCurrentItem().kategori,
+
+            // console.log(document.querySelector(UISelector.itemNamaProduk).value);
+
+            UICtrl.showDeleteState();
+        },
+
         hideList: function(){
             // document.querySelector(UISelector.itemList).style.display = 'none';
         },
@@ -311,14 +321,24 @@ const UICtrl = (function (){
         clearEditState: function(){
             UICtrl.clearInput();
             document.querySelector(UISelector.updateBtn).style.display = 'none';
-            // document.querySelector(UISelector.deleteBtn).style.display = 'none';
+            document.querySelector(UISelector.deleteBtn).style.display = 'none';
+            // document.querySelector(UISelector.deleteItem).style.display = 'none';
             // document.querySelector(UISelector.backBtn).style.display = 'none';
             document.querySelector(UISelector.addBtn).style.display = 'inline';
         },
 
         showEditState: function(){
             document.querySelector(UISelector.updateBtn).style.display = 'inline';
-            // document.querySelector(UISelector.deleteBtn).style.display = 'inline';
+            document.querySelector(UISelector.deleteBtn).style.display = 'none';
+            // document.querySelector(UISelector.deleteItem).style.display = 'inline';
+            // document.querySelector(UISelector.backBtn).style.display = 'inline';
+            document.querySelector(UISelector.addBtn).style.display = 'none';
+        },
+
+        showDeleteState: function(){
+            document.querySelector(UISelector.updateBtn).style.display = 'none';
+            document.querySelector(UISelector.deleteBtn).style.display = 'inline';
+            // document.querySelector(UISelector.deleteItem).style.display = 'inline';
             // document.querySelector(UISelector.backBtn).style.display = 'inline';
             document.querySelector(UISelector.addBtn).style.display = 'none';
         },
@@ -338,6 +358,7 @@ const App = (function(ItemCtrl, StorageCtrl, UICtrl){
         document.querySelector(UISelector.itemList).addEventListener('click',itemEditClick);
         document.querySelector(UISelector.updateBtn).addEventListener('click',itemUpdateSubmit);
         document.querySelector(UISelector.deleteBtn).addEventListener('click',itemDeleteSubmit);
+        document.querySelector(UISelector.itemList).addEventListener('click',itemDeleteClick);
     };
 
     const itemAddSubmit = function(e){
@@ -383,7 +404,7 @@ const App = (function(ItemCtrl, StorageCtrl, UICtrl){
 
             UICtrl.addItemToForm();
         };
-        e.preventDefault;
+        e.preventDefault();
     };
 
     const itemUpdateSubmit = function(e){
@@ -403,7 +424,30 @@ const App = (function(ItemCtrl, StorageCtrl, UICtrl){
 
         UICtrl.clearEditState();
 
-        e.preventDefault;
+        e.preventDefault();
+
+    };
+
+
+    const itemDeleteClick= function(e){
+
+        if (e.target.classList.contains('delete-item')){
+
+            // mengambil list item berdasarkan id
+            const listId = e.target.parentNode.parentNode.parentNode.id;
+            // masuk kedalam sebuah array
+            const listIdArr = listId.split('-');
+            // Ambil ID yang sebenarnya
+            const id = parseInt(listIdArr[1]);
+            // ambil item
+            const itemToDelete= ItemCtrl.getItemById(id);
+
+            ItemCtrl.setCurrentItem(itemToDelete);
+
+            UICtrl.addItemToFormDelete();
+        };
+        e.preventDefault();
+
     };
 
     const itemDeleteSubmit= function(e){
@@ -428,7 +472,9 @@ const App = (function(ItemCtrl, StorageCtrl, UICtrl){
         
         e.preventDefault();
 
+
     };
+
     return {
         init: function(){
             UICtrl.clearEditState();
