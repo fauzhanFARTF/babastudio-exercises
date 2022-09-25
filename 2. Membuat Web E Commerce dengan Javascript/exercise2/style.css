@@ -1,0 +1,25 @@
+body{
+    font-size: 15px;
+    /* background-image: linear-gradient(to top right, rgb(217,66,119), rgb(121,65,118)); */
+    height: 1200px;
+}
+.row {
+    margin: 40px auto;
+}
+.btn {
+    margin-bottom: 40px;
+}
+#paket-produk {
+    padding: 0px 60px;
+}
+h2 {
+    margin: 40px 0px 40px 60px;
+    text-align: left;
+}
+.wrapper {
+     box-shadow: 1px 1px 10px 7px rgba(214, 216, 218, 0.931);
+}
+.delete {
+    color: white;
+}
+
