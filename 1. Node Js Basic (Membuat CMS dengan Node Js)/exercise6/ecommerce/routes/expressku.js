@@ -59,7 +59,7 @@ exports.single = function (req,res){
     // res.render('single');
         var id_product = req.params.id_product;
         req.getConnection(function(err, connect){
-                var query = connect.query('SELECT  FROM product JOIN product_images ON product.id_product = product_images.id_product WHERE product_images.id_product =?', id_product, function (err, rows){
+                var query = connect.query('SELECT * FROM product JOIN product_images ON product.id_product = product_images.id_product WHERE product_images.id_product =?', id_product, function (err, rows){
                     if (err){
                         console.log('Error Message: %', err);
                     }
