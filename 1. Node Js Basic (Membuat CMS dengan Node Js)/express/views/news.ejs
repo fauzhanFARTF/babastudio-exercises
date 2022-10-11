@@ -1,0 +1,131 @@
+﻿<!doctype html>
+<html>
+  	<head>
+        <meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+   <!-- 25 -->   <title><%= page_title %></title>
+    <!-- 6 -->    <link type="text/css" rel="stylesheet" href="/public/css/bootstrap.css">
+    <!-- 7 -->    <link type="text/css" rel="stylesheet" href="/public/css/mystyle.css">
+	<!-- 30 -->	  <link rel="stylesheet" href="/public/lightbox/css/lightbox.css" type="text/css"/>
+	<!-- 31 -->	  <script src="/public/lightbox/js/jquery-1.11.0.min.js"></script>
+	<!-- 32 -->	  <script src="/public/lightbox/js/lightbox.js"></script>
+    </head>
+   	<body>
+	
+	<div class="navbar navbar-inverse">
+        <div class="container">
+        <!--- Start Header --->
+			<div class="row">
+				<div class="col-sd-12 col-md-12 col-lg-12">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mynavbar-content">
+							<span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+						</button>
+		<!-- 1 -->		<a class="navbar-brand" href="/express">Express News</a>
+					</div>
+					<div class="collapse navbar-collapse" id="mynavbar-content">
+						<ul class="nav navbar-nav">
+		<!-- 2-->			<li class="active"><a href="/express/news">News</a></li>
+       	<!-- 3-->           <li><a href="/express/about">About</a></li>
+		<!-- 4-->			<li><a href="/express/contact">Contact</a></li>
+		<!-- 5-->			<li><a href="/express/gallery">Gallery</a></li>
+						</ul>
+
+					</div>
+				</div>
+			</div>
+		<!---  End Header --->
+        </div>
+	</div>
+	<div id="content">
+		<div class="container">
+			<div class="row">
+			<!--- Start Content --->
+				<div class="col-md-3"> 
+				<!--- Star Content Left --->
+					<div class="panel panel-primary">
+					<div class="panel-heading">Login</div>
+					<div class ="panel-body">
+						<!--- Start Login Form --->
+						<form class="form">
+						<div class="form-group">
+							<label for="email">Email Address:</label>
+							<input type="email" class="form-control" id="useremail" placeholder="Please Enter Email">
+						</div>
+						<div class="form-group">
+							<label for="password">Password:</label>
+							<input type="password" class="form-control" id="userpassword" placeholder="Please Enter Password">
+						</div>
+						<div class="form-group">
+						If you don't have account, please register <a href="#">here</a>
+						</div>
+
+						<input type="submit" class="btn btn-primary" value="Login" id="loginsubmit" name="loginsubmit">
+						</form>
+						<!--- End Login Form --->
+					</div>
+					</div>
+				<!--- End Content Left --->
+				</div>
+				<div class="col-md-9"> 
+					<!--- Star Content Right --->
+					<div class="row carousel-holder">
+						<div class="col-md-12">
+						<!--- Start Carousel --->
+						<h1>News</h1>
+<!-- 20 -->             <%
+							<!-- if(data.length){
+								for(var i=0; i < data.length; i++){ -->
+							
+						%>
+                        <div class="media">
+<!-- 26 -->							<a href="/public/news_images/<%= data[i].images %>" class="pull-left">
+<!-- 8,23, 27 -->						<img class="media-object" src="/public/news_images/<%= data[i].images %>" alt="News 1">
+							</a>
+							<div class="media-body">
+<!--22, 28 -->				<a href="/express/news_detail/<%= data[i].id_news %>" class="link_detail"><h3 class="media-heading"><%=data[i].title %></h3></a>
+<!--24-->					<p><%=data[i].description.substring(0,300) %></p>
+								<!-- <p>
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc a ipsum nec ante rhoncus rhoncus. Vestibulum fringilla vitae justo eu euismod. Cras luctus, enim in malesuada adipiscing, massa dolor tincidunt urna, id iaculis erat ante nec dolor. Aenean sit amet pulvinar augue. Mauris tincidunt vel quam eu ultrices. Vivamus tempus vestibulum commodo.
+                                </p> -->
+ <!-- 29 -->                    <a href="/express/news_detail/<%= data[i].id_news %>" class="link_detail">Read More</a>						
+							</div>
+						</div>
+<!-- 21 -->				<% 
+								}
+							}
+						%>
+
+						<!--- End Carousel --->
+						</div>
+					</div>
+					<div class="row">
+						<!--- Start Content Right Bottom --->
+												
+						<!--- End Content Right Bottom --->
+					</div>
+					<!--- End Content Right --->    
+				</div>
+			<!---  End Content --->
+			</div>
+		</div>
+    </div>
+	<div id="footer">
+        <div class="container">
+    		<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="copyright">
+					<center>
+					<p>Copyrights &copy; 2018 Babastudio.com</p>
+					</center>
+				</div>
+			</div>
+        </div>
+    </div>
+
+<!-- 18 -->			<script type="text/javascript" language="javascript" src="/public/js/jquery.js"></script>
+<!-- 19 -->			<script type="text/javascript" language="javascript" src="/public/js/bootstrap.min.js"></script>
+	
+	</body>
+</html>

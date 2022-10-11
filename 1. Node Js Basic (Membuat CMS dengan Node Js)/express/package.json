@@ -1,0 +1,29 @@
+{
+  "name": "express-news",
+  "version": "1.0.0",
+  "description": "build-express-news-app",
+  "main": "index.js",
+  "scripts": {
+    "test": "testing-express-news"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fauzhanFARTF/babastudio-modul.git"
+  },
+  "keywords": [
+    "express"
+  ],
+  "author": "Fauzan Nurrachman",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/fauzhanFARTF/babastudio-modul/issues"
+  },
+  "homepage": "https://github.com/fauzhanFARTF/babastudio-modul#readme",
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "express-myconnection": "^1.0.4",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1"
+  }
+}
